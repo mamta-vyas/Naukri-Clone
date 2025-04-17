@@ -67,23 +67,6 @@ A simplified clone of the Naukri job portal, built with **React**, **Redux Toolk
 
 Authentication is handled using Firebase Email/Password. Here's the configuration in `src/firebase.js`:
 
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-
-const firebaseConfig = {
-  apiKey: "AIz*********Cee4",
-  authDomain: "naukri-clone-3e88e.firebaseapp.com",
-  projectId: "naukri-clone-3e88e",
-  storageBucket: "naukri-clone-3e88e.firebasestorage.app",
-  messagingSenderId: "892384622626",
-  appId: "1:892384622626:web:eb82531a6b7abf7638f27b",
-  measurementId: "G-P27K7GVMS7"
-};
-
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-
-
 📌 Features
 🔐 Firebase authentication (Sign Up, Log In, Protected Routes)
 
@@ -120,7 +103,6 @@ npm run preview - Preview production build
 
 🚧 Roadmap
  Firebase Authentication
-
 Job List UI
 
  Backend for Job Postings
