@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import JobDetail from "./pages/JobDetail";
-import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 
@@ -38,7 +37,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/job/:title" element={<JobDetail />} />
             <Route path="/login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
+           
           </Routes>
         </main>
         <Footer />
