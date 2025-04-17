@@ -1,29 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Importing Link component for routing
+// src/components/Header.js
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../features/auth/authSlice";
+import { auth } from "../firebase";
 
-const Header = ({ darkMode }) => {
+const Header = () => {
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    auth.signOut();
+    dispatch(logoutUser());
+    navigate("/");
+  };
+
   return (
-    <header
-      className={`py-4 px-6 flex items-center justify-between shadow-md ${
-        darkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
-      }`}
-    >
-      <h1 className="text-2xl font-bold tracking-wide">
-        Naukri<span className="text-blue-500">Clone</span>
-      </h1>
-      <nav className="space-x-4 text-sm sm:text-base">
-        <Link to="/" className="hover:text-blue-500">
-          Jobs
-        </Link>
-        <Link to="/about" className="hover:text-blue-500">
-         About
-        </Link>
-        <Link to="/services" className="hover:text-blue-500">
-          Services
-        </Link>
-        <Link to="/login" className="hover:text-blue-500">
-          Login
-        </Link>
+    <header className="bg-white shadow p-4 flex justify-between items-center">
+  
+      <nav className="space-x-4">
+        <Link to="/home">Home</Link>
+        <Link to="/about">About</Link>
+        {user && (
+          <button
+            onClick={handleLogout}
+            className="text-red-500 underline ml-2"
+          >
+            Logout
+          </button>
+        )}
       </nav>
     </header>
   );
