@@ -1,7 +1,11 @@
 // src/components/Header.js
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
 import { logoutUser } from "../features/auth/authSlice";
+=======
+import { logout } from "../features/auth/authSlice";
+>>>>>>> c03cd1d (Forntend part of app client side done)
 import { auth } from "../firebase";
 
 const Header = () => {
@@ -11,7 +15,11 @@ const Header = () => {
 
   const handleLogout = () => {
     auth.signOut();
+<<<<<<< HEAD
     dispatch(logoutUser());
+=======
+    dispatch(logout());
+>>>>>>> c03cd1d (Forntend part of app client side done)
     navigate("/");
   };
 
