@@ -12,10 +12,9 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.7.0",
     "@tailwindcss/vite": "^4.1.4",
-<<<<<<< HEAD
-=======
+
     "axios": "^1.8.4",
->>>>>>> c03cd1d (Forntend part of app client side done)
+
     "firebase": "^11.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
