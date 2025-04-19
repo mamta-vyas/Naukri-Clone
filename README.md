@@ -1,125 +1,187 @@
-# 🧑‍💼 Naukri-Clone
+🧑‍💼 Naukri-Clone
+A simplified clone of the Naukri job portal, built with React, Redux Toolkit, Tailwind CSS, and Firebase Authentication. Users can sign up, log in, and explore job listings. Backend integration is in progress.
 
-A simplified clone of the Naukri job portal, built with **React**, **Redux Toolkit**, **Tailwind CSS**, and **Firebase Authentication**. Users can sign up, log in, and explore job listings. Backend integration is in progress.
+🔗 Live Preview: Coming Soon
+📁 GitHub Repo: mamta-vyas/Naukri-Clone
 
-> 🔗 **Live Preview:** _Coming Soon_  
-> 📁 **GitHub Repo:** [mamta-vyas/Naukri-Clone](https://github.com/mamta-vyas/Naukri-Clone)
+🧰 Tech Stack
+Frontend: React, Tailwind CSS
 
----
+State Management: Redux Toolkit
 
-## 🧰 Tech Stack
+Routing: React Router
 
-- **Frontend:** React, Tailwind CSS
-- **State Management:** Redux Toolkit
-- **Routing:** React Router
-- **Authentication:** Firebase (Email/Password)
-- **Build Tool:** Vite
+Authentication: Firebase (Email/Password)
 
----
+Backend: Node.js, Express, JWT, MongoDB
 
-## 📂 Folder Structure
+Build Tool: Vite
 
-## 📂 Folder Structure
+📂 Folder Structure
 
 .
 ├── README.md
 ├── build
 │   ├── 404.html
 │   └── index.html
-├── eslint.config.js
-├── firebase.json
-├── index.html
-├── package-lock.json
-├── package.json
-├── public
-│   └── vite.svg
-├── src
-│   ├── App.css
-│   ├── App.jsx
-│   ├── app
-│   │   └── store.js
-│   ├── assets
-│   │   └── react.svg
-│   ├── components
-│   │   ├── Footer.jsx
-│   │   ├── Header.jsx
-│   │   ├── JobCard.jsx
-│   │   ├── JobList.jsx
-│   │   └── Pagination.jsx
-│   ├── features
-│   │   └── auth
-│   │       └── authSlice.js
-│   ├── firebase.js
-│   ├── index.css
-│   ├── main.jsx
-│   └── pages
-│       ├── About.jsx
-│       ├── Home.jsx
-│       ├── JobDetail.jsx
-│       ├── Login.jsx
-│       └── SignUp.jsx
-└── vite.config.js
+├── client
+│   ├── dist
+│   │   ├── assets
+│   │   │   ├── index-CivjFw9K.css
+│   │   │   └── index-Cn865pZY.js
+│   │   ├── index.html
+│   │   └── vite.svg
+│   ├── eslint.config.js
+│   ├── firebase.json
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   └── vite.svg
+│   ├── src
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── app
+│   │   │   └── store.js
+│   │   ├── assets
+│   │   │   └── react.svg
+│   │   ├── components
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── JobCard.jsx
+│   │   │   ├── JobList.jsx
+│   │   │   ├── Pagination.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── features
+│   │   │   └── auth
+│   │   │       └── authSlice.jsx
+│   │   ├── firebase.js
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   └── pages
+│   │       ├── About.jsx
+│   │       ├── Home.jsx
+│   │       ├── JobDetail.jsx
+│   │       ├── Login.jsx
+│   │       └── SignUp.jsx
+│   └── vite.config.js
+└── server
+    ├── config
+    │   └── db.js
+    ├── controllers
+    │   └── jobController.js
+    ├── index.js
+    ├── middleware
+    │   ├── auth.js
+    │   └── errorHandler.js
+    ├── models
+    │   ├── User.js
+    │   └── jobModel.js
+    ├── nodemon.json
+    ├── package-lock.json
+    ├── package.json
+    └── routes
+        ├── auth.js
+        └── jobRoutes.js
+
+19 directories, 45 files
+
+🔐 Firebase & Backend Setup
+
+Firebase Authentication: Authentication is handled using Firebase Email/Password.
+
+Backend (Node.js with Express):
+
+JWT-based authentication for secure login and registration.
+
+MongoDB integration for storing user data.
+
+Protected routes to retrieve logged-in user data.
 
 
----
+📂 Features
+Firebase authentication (Sign Up, Log In, Protected Routes)
 
-## 🔐 Firebase Setup
+Job listing cards (Frontend)
 
-Authentication is handled using Firebase Email/Password. Here's the configuration in `src/firebase.js`:
+Redux Toolkit for state management
 
-📌 Features
-🔐 Firebase authentication (Sign Up, Log In, Protected Routes)
+Tailwind CSS for responsive styling
 
-🗂 Job listing cards 
+Backend: JWT authentication, MongoDB integration, user login/signup routes
 
-🧠 Redux Toolkit for state management
-
-⚡ Built with Vite for fast development
-
-💅 Tailwind CSS for responsive styling
-
-🚧 Backend & dynamic job data integration coming soon
+Protected routes for user data
 
 🛠 Getting Started
 1. Clone the Repo
-
 git clone https://github.com/mamta-vyas/Naukri-Clone
 cd Naukri-Clone
 
 2. Install Dependencies
-
 npm install
-3. Start the Development Server
 
-npm run dev
-App runs at http://localhost:5173.
+3. Setup Backend (Server)
+Navigate to the server folder and install server dependencies:
+cd server
+npm install
+
+Create a .env file in the server folder and add your environment variables:
+JWT_SECRET=your_jwt_secret
+MONGODB_URI=your_mongodb_connection_string
+
+Start the backend server:
+npm start
+
+4. Setup Frontend (React)
+Navigate to the client folder and install frontend dependencies:
+cd client
+npm install
+
+Start the React app locally:
+npm start
+
+5. Build and Deploy
+Frontend is deployed on Netlify:
+
+Backend is deployed on Render:
+Render URL
+
+🔐 API Endpoints
+POST /api/auth/register: User registration (requires name, email, password).
+
+POST /api/auth/login: User login (requires email, password).
+
+GET /api/auth/user: Get logged-in user data (requires JWT token in the Authorization header).
 
 🛠 Scripts
-npm run dev - Start local dev server
+Frontend (client):
 
-npm run build - Build for production
+npm run dev - Start the local development server.
 
-npm run preview - Preview production build
+npm run build - Build for production.
+
+npm run preview - Preview the production build.
+
+Backend (server):
+
+npm start - Start the backend server.
+
 
 🚧 Roadmap
- Firebase Authentication
+Firebase Authentication
+
 Job List UI
 
- Backend for Job Postings
+Backend for Job Postings
 
- Wishlist/Save Jobs Feature
+Wishlist/Save Jobs Feature
 
- Apply Button / Contact Flow
+Apply Button / Contact Flow
 
- Admin Panel (optional)
+Admin Panel (optional)
 
 🤝 Contributing
 Contributions are welcome! If you'd like to fix a bug or add a feature, feel free to fork the repo and open a pull request.
 
 🙋‍♀️ Author
-Made  by Mamta Vyas
-GitHub - https://github.com/mamta-vyas
-
-📃 License
-This project is licensed under the MIT License.
-
+Made by Mamta Vyas
