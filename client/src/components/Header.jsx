@@ -2,7 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/auth/authSlice";
-import { auth } from "../firebase";
+
 
 const Header = () => {
   const user = useSelector((state) => state.auth.user);
@@ -10,7 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    auth.signOut();
+
     dispatch(logout());
     navigate("/");
   };

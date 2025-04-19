@@ -1,4 +1,3 @@
-// src/pages/SignUp.js
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -6,7 +5,7 @@ import axios from "axios";
 import { setUser } from "../features/auth/authSlice";
 
 const SignUp = () => {
-  const [name, setName] = useState(""); // Added name state
+  const [name, setName] = useState(""); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -16,33 +15,27 @@ const SignUp = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/home"); // ✅ already logged in
+      navigate("/home"); // already logged in
     }
   }, [user, navigate]);
 
   const handleSignup = async (e) => {
-  e.preventDefault();
-  try {
-    const res = await axios.post("http://localhost:5000/api/auth/register", {
-      name, // Added name to the request
-      email,
-      password,
-    });
+    e.preventDefault();
+    try {
+      const res = await axios.post("https://naukri-clone-varr.onrender.com/api/auth/register", {
+        name,
+        email,
+        password,
+      });
 
-    // Store the token in localStorage
-    localStorage.setItem("token", res.data.token);
-
-    // Dispatch user data to Redux store
-    dispatch(setUser(res.data.user));
-
-    // Redirect to home page
-    navigate("/home");
-  } catch (err) {
-    console.error(err.message);
-    setError(err.message);
-  }
-};
-
+      localStorage.setItem("token", res.data.token);
+      dispatch(setUser(res.data.user));
+      navigate("/home");
+    } catch (err) {
+      console.error(err);
+      setError(err.response?.data?.message || "Signup failed");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center">

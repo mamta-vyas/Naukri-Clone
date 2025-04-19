@@ -22,24 +22,20 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("https://naukri-clone-varr.onrender.com/api/auth/login", {
         email,
         password,
       });
   
-      // Store the token in localStorage
       localStorage.setItem("token", res.data.token);
-  
-      // Dispatch user data to Redux store
       dispatch(setUser(res.data.user));
-  
-      // Redirect to home page
       navigate("/home");
     } catch (err) {
-      console.error(err.message);
-      setError(err.message);
+      console.error(err);
+      setError(err.response?.data?.message || "Login failed");
     }
   };
+  
   
 
   return (
