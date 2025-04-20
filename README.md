@@ -86,10 +86,6 @@ Build Tool: Vite
 
 19 directories, 45 files
 
-🔐 Firebase & Backend Setup
-
-Firebase Authentication: Authentication is handled using Firebase Email/Password.
-
 Backend (Node.js with Express):
 
 JWT-based authentication for secure login and registration.
@@ -100,7 +96,6 @@ Protected routes to retrieve logged-in user data.
 
 
 📂 Features
-Firebase authentication (Sign Up, Log In, Protected Routes)
 
 Job listing cards (Frontend)
 
@@ -151,7 +146,7 @@ POST /api/auth/register: User registration (requires name, email, password).
 
 POST /api/auth/login: User login (requires email, password).
 
-GET /api/auth/user: Get logged-in user data (requires JWT token in the Authorization header).
+GET /api/auth/me: Get logged-in user data (requires JWT token in the Authorization header).
 
 🛠 Scripts
 Frontend (client):
@@ -165,20 +160,6 @@ npm run preview - Preview the production build.
 Backend (server):
 
 npm start - Start the backend server.
-
-
-🚧 Roadmap
-Firebase Authentication
-
-Job List UI
-
-Backend for Job Postings
-
-Wishlist/Save Jobs Feature
-
-Apply Button / Contact Flow
-
-Admin Panel (optional)
 
 🤝 Contributing
 Contributions are welcome! If you'd like to fix a bug or add a feature, feel free to fork the repo and open a pull request.
